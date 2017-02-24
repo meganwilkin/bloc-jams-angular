@@ -1,12 +1,12 @@
-(function() {
-     function config($stateProvider, $locationProvider) {
-         $locationProvider
-         .html5Mode({
-             enabled: true,
-             requireBase: false
-         });
-         
-         stateProvider
+(function() {     
+    function config($stateProvider, $locationProvider) {     
+        $locationProvider
+        .html5Mode({ 
+            enabled: true,
+            requireBase: false
+        });
+    
+    $stateProvider
          .state('landing', {
              url: '/',
              templateUrl: '/templates/landing.html'
@@ -16,12 +16,12 @@
              templateUrl: '/templates/album.html'
          })
          .state('collection', {
-             url:'/colection',
+             url:'/collection',
              templateUrl: '/templates/collection.html'
          });
      }
  
-angular
+    angular
          .module('blocJams', ['ui.router'])
          .config(config);
  })();
