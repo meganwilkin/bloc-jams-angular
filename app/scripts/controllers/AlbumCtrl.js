@@ -1,17 +1,10 @@
 (function () {
-    function AlbumCtrl() {
-        this.albumData = [];
-        this.albumData = angular.copy(albumPicasso.songs);
-        
-        this.title = albumPicasso.title;
-        this.artist = albumPicasso.artist;
-        this.year = albumPicasso.year;
-        this.label = albumPicasso.label;
-    }
+    function AlbumCtrl(Fixtures) {
+        this.albumData = Fixtures.getAlbum();
+     }
     
-
 
     angular
         .module('blocJams')
-        .controller('AlbumCtrl', AlbumCtrl);
+        .controller('AlbumCtrl', ['Fixtures', AlbumCtrl]);
 })();
