@@ -66,7 +66,7 @@
                     if (typeof scope.onChange === 'function') {
                         scope.onChange({value: newValue});
                     }
-                };
+                }; 
 
                 scope.thumbStyle = function() {
                     return {left: percentString()};

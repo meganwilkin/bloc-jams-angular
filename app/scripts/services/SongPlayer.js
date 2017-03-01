@@ -124,7 +124,7 @@
         };
         
         /**
-        * @desc changes current sont to one before
+        * @desc changes current song to one before
         * @type {Object}
         */
         SongPlayer.previous = function() {
@@ -142,8 +142,8 @@
             }
         };
         /**
-        * @desc
-        * @type
+        * @desc changes current song to one after
+        * @type {Object}
         */
         SongPlayer.next = function(song) {
          var currentSongIndex = getSongIndex(SongPlayer.currentSong);
@@ -173,7 +173,8 @@
         };
         
         /**
-        *
+        * @function set voluem
+        * @desc set volume of currently palying song
         * 
         */
        SongPlayer.setVolume = function(volume) {
