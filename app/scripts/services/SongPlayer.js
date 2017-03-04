@@ -99,6 +99,12 @@
         */
         SongPlayer.volumeMax = 100;
         
+        /**
+        * @desc Is muted
+        * @type boolean
+        */
+        SongPlayer.isMuted = false;
+        
 
         
 //          if (this.currentSong.isEnded()) {
@@ -112,12 +118,12 @@
          */
         SongPlayer.play = function (song) {
             song = song || SongPlayer.currentSong;
-            if (SongPlayer.currentSong !== song) {
-
+            
+            if (song === null) {
+                SongPlayer.next();
+            } else if (SongPlayer.currentSong !== song) {
                 setSong(song);
-
                 playSong(song);
-
             } else if (SongPlayer.currentSong === song) {
                 if (currentBuzzObject.isPaused()) {
                     playSong(song);
@@ -186,7 +192,7 @@
         
         /**
         * @function setVolume
-        * @desc set volume of currently palying song
+        * @desc set volume of currently playing song
         * @param {Number} volume
         */
        SongPlayer.setVolume = function(volume) {
@@ -196,6 +202,19 @@
            }
         };
 
+        /**
+        * @function toggleMute
+        * @desc Mute/unmute the currently playing song
+        */
+       SongPlayer.toggleMute = function() {
+           
+           SongPlayer.isMuted = SongPlayer.isMuted ? false : true;
+           
+           if (currentBuzzObject) {
+               currentBuzzObject.toggleMute();
+           }
+        };
+        
         return SongPlayer;
     }
 

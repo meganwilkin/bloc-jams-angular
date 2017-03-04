@@ -55,11 +55,12 @@
 
 .album-song-button {
      text-align: center;
+     vertical-align: middle;
      font-size: 14px;
      background-color: white;
      color: rgb(210, 40, 123);
      border-radius: 50% 50%;
-     display: inline-block;
+     display: table-cell;
      width: 28px;
      height: 28px;
  }
