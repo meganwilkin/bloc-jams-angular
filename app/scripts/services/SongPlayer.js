@@ -15,6 +15,7 @@
         var playSong = function (song) {
             currentBuzzObject.play();
             song.playing = true;
+            
         }
 
         /**
@@ -38,6 +39,11 @@
                 $rootScope.$apply(function() {
                     SongPlayer.currentTime = currentBuzzObject.getTime();
                 });
+            });
+            
+            // Automatically start playing next song
+            currentBuzzObject.bind('ended', function() {
+                SongPlayer.next();
             });
 
             SongPlayer.currentSong = song;
@@ -93,6 +99,12 @@
         */
         SongPlayer.volumeMax = 100;
         
+
+        
+//          if (this.currentSong.isEnded()) {
+//            console.log("song ended");  
+//          };
+                
         
         /**
          * @desc plays newly selected song or plays song that was previously paused
@@ -110,7 +122,7 @@
                 if (currentBuzzObject.isPaused()) {
                     playSong(song);
                 }
-            }
+            } 
         };
 
         /**
@@ -173,9 +185,9 @@
         };
         
         /**
-        * @function set voluem
+        * @function setVolume
         * @desc set volume of currently palying song
-        * 
+        * @param {Number} volume
         */
        SongPlayer.setVolume = function(volume) {
            SongPlayer.volume = volume;
@@ -183,7 +195,6 @@
                currentBuzzObject.setVolume(volume);
            }
         };
-            
 
         return SongPlayer;
     }
