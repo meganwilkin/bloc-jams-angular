@@ -46,6 +46,33 @@ html {
      /* #3 */
      text-decoration: none;
  }
+
+.search-container {
+    position: relative;
+    margin-top: 33px;
+}
+
+.search-container span {
+  position: absolute;
+  padding: 8px;
+  pointer-events: none;
+  left: 0px;
+}
+
+.navbar .links-container .search {
+    height: 34px;
+    border-radius: 10px;
+    background: none;
+    border: 1px solid rgba(255,255,255,1);
+    font-size: 0.625rem;
+    width: 150px;
+    padding: 5px 5px 5px 25px;
+    color: white;
+}
+
+.navbar .links-container .search:focus {
+    outline: none;
+}
  
  .links-container .navbar-link {
      display: table-cell;

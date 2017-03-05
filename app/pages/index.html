@@ -19,10 +19,12 @@
     <script src="/scripts/app.js"></script>
     <script src="/scripts/services/Fixtures.js"></script>
     <script src="/scripts/services/SongPlayer.js"></script>
+<!--    <script src="/scripts/services/SongSearch.js"></script>-->
     <script src="/scripts/controllers/LandingCtrl.js"></script>
     <script src="/scripts/controllers/CollectionCtrl.js"></script>
     <script src="/scripts/controllers/AlbumCtrl.js"></script>
     <script src="/scripts/controllers/PlayerBarCtrl.js"></script>
+    <script src="/scripts/controllers/SongSearchCtrl.js"></script>
     <script src="/scripts/directives/seekBar.js"></script>
     <script src="/scripts/filters/timecode.js"></script>
 </head>
@@ -32,10 +34,14 @@
                 <img src="/assets/images/bloc_jams_logo.png" alt="bloc jams logo">
             </a>
             <div class="links-container">
+                <div class="search-container" ng-controller="SongSearchCtrl">
+                    <span class="icon ion-search"></span>
+                    <input type="text" class="search" ng-model="searchtext" ng-change="searchTextChanged()">
+                </div>
                 <a ui-sref="collection" class="navbar-link">collection</a>
             </div>
         </nav>
-    
+        
         <ui-view></ui-view>
     
 
